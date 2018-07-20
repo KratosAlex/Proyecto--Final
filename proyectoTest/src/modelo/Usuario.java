@@ -21,6 +21,11 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public Usuario(String login, String password) {
+        this.login = login;
+        this.password = password;
+    }
    
 }
 
