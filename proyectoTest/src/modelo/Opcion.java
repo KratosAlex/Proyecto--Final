@@ -5,11 +5,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author T-101
  */
-public class Opcion {
+public class Opcion implements Serializable{
 
     private String titulo;
     private boolean correcta;
@@ -30,4 +32,13 @@ public class Opcion {
         this.correcta = correcta;
     }
 
+    public Opcion() {
+    }
+
+    public Opcion(String titulo, boolean correcta) {
+        this.titulo = titulo;
+        this.correcta = correcta;
+    }
+    
+    
 }
