@@ -1,10 +1,9 @@
-
 package modelo;
 
-
 public class Usuario {
-   private String login;
-   private String password;
+
+    private String login;
+    private String password;
 
     public String getLogin() {
         return login;
@@ -22,10 +21,12 @@ public class Usuario {
         this.password = password;
     }
 
+    public Usuario() {
+    }
+
     public Usuario(String login, String password) {
         this.login = login;
         this.password = password;
     }
-   
-}
 
+}

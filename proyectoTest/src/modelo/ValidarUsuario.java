@@ -1,10 +1,11 @@
-
 package modelo;
 
-
 public class ValidarUsuario {
-    public static void ValidarUsuarioCorrecto(String login,String password) throws UsuarioNoValiodoException{
-        if(!login.equals("carlos") & !"14050500".equals( new String(password))) throw new UsuarioNoValiodoException();
-        
-    } 
+
+    public static void ValidarUsuarioCorrecto(String login, String password) throws UsuarioNoValidoException {
+        if (!"carlos".equals(login) & !"14050500".equals(login)) {
+            throw new UsuarioNoValidoException();
+        }
+    }
+
 }

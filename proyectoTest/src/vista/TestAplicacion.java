@@ -7,7 +7,7 @@ package vista;
 
 /**
  *
- * @author T-101
+ * @author Oldspice
  */
 public class TestAplicacion extends javax.swing.JFrame {
 
@@ -32,23 +32,24 @@ public class TestAplicacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("test");
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 3, 36)); // NOI18N
+        jLabel1.setText("Inicio");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addGap(166, 166, 166)
                 .addComponent(jLabel1)
-                .addContainerGap(304, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(114, 114, 114)
                 .addComponent(jLabel1)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
