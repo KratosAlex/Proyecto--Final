@@ -63,10 +63,17 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 102));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel2.setText("Administracion de Formulario");
 
+        jTabbedPane1.setBackground(new java.awt.Color(0, 0, 102));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 102));
+
+        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Titulo de Pregunta");
 
         txtTitulo.setColumns(20);
@@ -74,6 +81,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtTitulo.setTabSize(20);
         jScrollPane1.setViewportView(txtTitulo);
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Respuesta Correcta");
 
         txtCorrecta.setColumns(20);
@@ -81,6 +89,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtCorrecta.setTabSize(20);
         jScrollPane2.setViewportView(txtCorrecta);
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Respuesta Incorrecta 1");
 
         txtIncorrecta1.setColumns(20);
@@ -93,6 +102,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtIncorrecta3.setTabSize(20);
         jScrollPane4.setViewportView(txtIncorrecta3);
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Respuesta Incorrecta 3");
 
         txtIncorrecta2.setColumns(20);
@@ -100,6 +110,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtIncorrecta2.setTabSize(20);
         jScrollPane5.setViewportView(txtIncorrecta2);
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Respuesta Incorrecta 2");
 
         jButton1.setText("Agregar");
@@ -168,6 +179,8 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Nueva Pregunta", jPanel1);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 102));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
