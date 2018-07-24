@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
 import java.io.File;
@@ -12,10 +8,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-/**
- *
- * @author T-101
- */
+
 public class PersistenciaPregunta {
       public static void guardar(Pregunta p) throws Exception {
         //static: cuando declaramos algo static significa que al ejecutar el programa 
@@ -41,7 +34,7 @@ public class PersistenciaPregunta {
     
     public static ArrayList<Pregunta> leer() throws Exception {
         //Primero asignamos la ruta del archivo que vamos a leer
-        File file = new File("cuestinario.yo");
+        File file = new File("cuestionario.yo");
         //
         FileInputStream fis = new FileInputStream(file);
         //

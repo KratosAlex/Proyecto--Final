@@ -5,6 +5,13 @@
  */
 package vista;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import modelo.Opcion;
+import modelo.PersistenciaPregunta;
+import modelo.Pregunta;
+
 /**
  *
  * @author Oldspice
@@ -16,6 +23,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
      */
     public FormularioAplicacion() {
         initComponents();
+
         setLocationRelativeTo(this);
     }
 
@@ -48,6 +56,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        MostrarButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -92,6 +103,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jLabel6.setText("Respuesta Incorrecta 2");
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,15 +169,42 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Nueva Pregunta", jPanel1);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable1);
+
+        MostrarButton.setText("Mostrar Preguntas");
+        MostrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MostrarButton)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(MostrarButton)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar Pregunta", jPanel2);
@@ -208,11 +251,74 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //Pedimos a los campos los valores para ver las preguntas
+
+        String titulo = txtTitulo.getText();
+        String op1 = txtCorrecta.getText();
+        String op2 = txtIncorrecta1.getText();
+        String op3 = txtIncorrecta2.getText();
+        String op4 = txtIncorrecta3.getText();
+        //Construimos cada opcion
+        Opcion o1 = new Opcion(op1, true);
+        Opcion o2 = new Opcion(op2, false);
+        Opcion o3 = new Opcion(op3, false);
+        Opcion o4 = new Opcion(op4, false);
+        ArrayList opciones = new ArrayList<>();
+        opciones.add(o1);
+        opciones.add(o2);
+        opciones.add(o3);
+        opciones.add(o4);
+        //Las agregamos a un arraylist y a la pregunta
+        //Arrays.asList(o1,o2,o3,o4)
+        Pregunta p = new Pregunta(titulo, opciones);
+        //Ahora si guardamos la pregunta
+        try {
+            PersistenciaPregunta.guardar(p);
+            txtCorrecta.setText(null);
+            txtIncorrecta1.setText(null);
+            txtIncorrecta2.setText(null);
+            txtIncorrecta3.setText(null);
+            txtTitulo.setText(null);
+            JOptionPane.showConfirmDialog(this, "Pregunta guardada");
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(this, e.getMessage());
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void MostrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarButtonActionPerformed
+        // TODO add your handling code here:
+        try {
+            //Le damos formato a nuestra tabla
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    //El primero correstponde a las filas y el sedungo a als columnas
+                    new Object[PersistenciaPregunta.leer().size()][4],
+                    new String[]{
+                        "Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
+                    }
+            ));
+            int i = 0;
+            for (Pregunta p : PersistenciaPregunta.leer()) {
+                jTable1.setValueAt(p.getTitulo(), i, 0);
+                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 1);
+                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 2);
+                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 3);
+                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 4);
+                i++;
+            };
+
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(this, e.getMessage());
+        }
+    }//GEN-LAST:event_MostrarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,6 +356,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton MostrarButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -266,7 +373,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea txtCorrecta;
     private javax.swing.JTextArea txtIncorrecta1;
     private javax.swing.JTextArea txtIncorrecta2;
