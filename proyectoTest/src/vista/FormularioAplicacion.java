@@ -309,9 +309,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             for (Pregunta p : PersistenciaPregunta.leer()) {
                 jTable1.setValueAt(p.getTitulo(), i, 0);
                 jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 1);
-                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 2);
-                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 3);
-                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), i, 4);
+                jTable1.setValueAt(p.getOpciones().get(1).getTitulo(), i, 2);
+                jTable1.setValueAt(p.getOpciones().get(2).getTitulo(), i, 3);
+                jTable1.setValueAt(p.getOpciones().get(3).getTitulo(), i, 4);
                 i++;
             };
 
