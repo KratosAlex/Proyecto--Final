@@ -16,19 +16,22 @@ import java.util.Set;
 public class ProbarOrdenamiento {
 
     public static void main(String[] args) {
-        //} while (true valor=0);
+
         //Este arreglo no acepta duplicados
         Set<Integer> enteros = new LinkedHashSet<>();
-        //al imprimir es un 2 porque quita los repetidos gracias al 
+        //al imprimir es un 2 porque quita los repetidos gracias al Set<Integer>
         //si ya existe un numero no lo agreges y vuelvelo a hacer
         while (enteros.size() < 4) {
             Random r = new Random();
             int valor = r.nextInt(4);
             enteros.add(valor);
             System.out.println(valor);
-            }
-         for (Integer i: enteros){
-         //  System.out.println(enteros.);
+        }
+        System.out.println("------------------");
+        for (Integer i : enteros) {
+            System.out.println(i);
         }
     }
 }
+
+
