@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Random;
+import java.util.Set;
 
 
 public class PersistenciaPregunta {
@@ -45,4 +48,26 @@ public class PersistenciaPregunta {
         return preguntas;
     }
     
+    public static  ArrayList<Opcion>
+            opcionesAletorias(ArrayList<Opcion> opciones){
+            
+            ArrayList<Opcion> opcionesAleatorias = new ArrayList<>();
+            
+             Set<Integer> enteros = new LinkedHashSet<>();
+        //al imprimir es un 2 porque quita los repetidos gracias al 
+        //si ya existe un numero no lo agreges y vuelvelo a hacer
+        while (enteros.size() < 4) {
+            Random r = new Random();
+            int valor = r.nextInt(4);
+            enteros.add(valor);
+            System.out.println(valor);
+            }
+                
+            for(Integer i: enteros){
+                opcionesAleatorias.add(opciones.get(i));
+            }
+          return opcionesAleatorias;
+                
+            
+}
 }
