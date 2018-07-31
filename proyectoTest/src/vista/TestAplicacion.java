@@ -17,7 +17,10 @@ import modelo.Pregunta;
  * @author Oldspice
  */
 public class TestAplicacion extends javax.swing.JFrame {
-int numero=0;
+
+    int numero = 0;
+    int tiempo;
+    int respuestas;
     /**
      * Creates new form TestAplicacion
      */
@@ -26,10 +29,31 @@ int numero=0;
         setLocationRelativeTo(this);
         setSize(300, 500);
         mostrarPregunta(numero++);
+        //Hacemos el thread
+
+        Thread t1 = new Thread(new Runnable() {
+
+            public void run() {
+                while (true) {                    
+                    tiempo++;
+                    try {
+                        Thread.sleep(1000);
+                        etiquetaTiempo.setText(""+tiempo);
+                        if(tiempo>=5)mostrarPregunta(numero++);
+                    } catch (Exception e) {
+                    }
+                }
+
+            }
+
+        });
+        t1.start();
+
     }
 
     //CREAMOS UN METODO 
     public void mostrarPregunta(int numero) {
+        tiempo=0;
         try {
             //Primero sacamos la pregunta del numero dado
             ArrayList<Pregunta> preguntas = PersistenciaPregunta.leer();
@@ -109,6 +133,9 @@ int numero=0;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       //usar este
+        buttonGroup1.getSelection();
+        
         mostrarPregunta(numero++);
         
         
