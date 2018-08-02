@@ -21,6 +21,9 @@ public class TestAplicacion extends javax.swing.JFrame {
     int numero = 0;
     int tiempo;
     int respuestas;
+    int solocinco = 0;
+    int correctas = 0;
+
     /**
      * Creates new form TestAplicacion
      */
@@ -34,12 +37,20 @@ public class TestAplicacion extends javax.swing.JFrame {
         Thread t1 = new Thread(new Runnable() {
 
             public void run() {
-                while (true) {                    
+                while (true) {
                     tiempo++;
                     try {
                         Thread.sleep(1000);
-                        etiquetaTiempo.setText(""+tiempo);
-                        if(tiempo>=5)mostrarPregunta(numero++);
+                        etiquetaTiempo.setText("Tiempo: " + tiempo);
+                        if (tiempo >= 5) {
+                            mostrarPregunta(numero++);
+                            solocinco++;
+                            if (solocinco > 5) {
+                                dispose();
+                                Resultado r1 = new Resultado();
+                                r1.setVisible(true);
+                            }
+                        }
                     } catch (Exception e) {
                     }
                 }
@@ -53,7 +64,7 @@ public class TestAplicacion extends javax.swing.JFrame {
 
     //CREAMOS UN METODO 
     public void mostrarPregunta(int numero) {
-        tiempo=0;
+        tiempo = 0;
         try {
             //Primero sacamos la pregunta del numero dado
             ArrayList<Pregunta> preguntas = PersistenciaPregunta.leer();
@@ -92,6 +103,7 @@ public class TestAplicacion extends javax.swing.JFrame {
         rb3 = new javax.swing.JRadioButton();
         rb4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        txtcorrectas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -129,16 +141,25 @@ public class TestAplicacion extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1);
 
+        txtcorrectas.setText("..");
+        getContentPane().add(txtcorrectas);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       //usar este
+        //usar este
         buttonGroup1.getSelection();
-        
+        solocinco++;
         mostrarPregunta(numero++);
-        
-        
+        correctas++;
+        txtcorrectas.setText("Respuestas correctas: " + correctas);
+        if (solocinco > 5) {
+            dispose();
+            Resultado r1 = new Resultado();
+            r1.setVisible(true);
+        }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -186,5 +207,6 @@ public class TestAplicacion extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JRadioButton rb4;
+    private javax.swing.JLabel txtcorrectas;
     // End of variables declaration//GEN-END:variables
 }
