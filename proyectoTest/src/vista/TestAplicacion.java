@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,11 +20,12 @@ import modelo.Pregunta;
  */
 public class TestAplicacion extends javax.swing.JFrame {
 
-    int numero = 0;
-    int tiempo;
+    int numero = 0; //Variable usada para el numero de la pregunta
+    int tiempo; //Variable usada para generar tiempo
     int respuestas;
-    int solocinco = 0;
+    int solocinco = 1;
     int correctas = 0;
+    String respuestaActual;
 
     /**
      * Creates new form TestAplicacion
@@ -32,8 +35,12 @@ public class TestAplicacion extends javax.swing.JFrame {
         setLocationRelativeTo(this);
         setSize(300, 500);
         mostrarPregunta(numero++);
-        //Hacemos el thread
+        txtRespuestasTotales.setVisible(false);
+        txtResultado.setVisible(false);
+        txtcorrectas.setVisible(false);
+        ResultadosFinales.setVisible(false);
 
+        //Hacemos el thread
         Thread t1 = new Thread(new Runnable() {
 
             public void run() {
@@ -46,9 +53,9 @@ public class TestAplicacion extends javax.swing.JFrame {
                             mostrarPregunta(numero++);
                             solocinco++;
                             if (solocinco > 5) {
-                                dispose();
-                                Resultado r1 = new Resultado();
-                                r1.setVisible(true);
+                                ResultadosFinales.setText("El resulado es: " + correctas + " de 5");
+            ResultadosFinales.setVisible(true);
+                                
                             }
                         }
                     } catch (Exception e) {
@@ -59,6 +66,52 @@ public class TestAplicacion extends javax.swing.JFrame {
 
         });
         t1.start();
+        rb1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String texto = rb1.getText();
+                if (rb1.isSelected()) {
+                    texto = "" + texto;
+                    txtcorrectas.setText(texto);
+                }
+
+            }
+        });
+
+        rb2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String texto = rb2.getText();
+                if (rb2.isSelected()) {
+                    texto = "" + texto;
+                    txtcorrectas.setText(texto);
+                }
+
+            }
+        });
+
+        rb3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String texto = rb3.getText();
+                if (rb3.isSelected()) {
+                    texto = "" + texto;
+                    txtcorrectas.setText(texto);
+                }
+
+            }
+        });
+
+        rb4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                String texto = rb4.getText();
+                if (rb4.isSelected()) {
+                    texto = "" + texto;
+                    txtcorrectas.setText(texto);
+                }
+            }
+        });
 
     }
 
@@ -74,6 +127,8 @@ public class TestAplicacion extends javax.swing.JFrame {
             etiquetaPregunta.setText(p.getTitulo());
             //Ahora las opciones
             ArrayList<Opcion> opciones = p.getOpciones();
+            respuestaActual = opciones.get(0).getTitulo();
+            txtResultado.setText(respuestaActual);
             //Aplicamos el algoritmo
             opciones = PersistenciaPregunta.opcionesAletorias(opciones);
 
@@ -81,6 +136,7 @@ public class TestAplicacion extends javax.swing.JFrame {
             rb2.setText(opciones.get(1).getTitulo());
             rb3.setText(opciones.get(2).getTitulo());
             rb4.setText(opciones.get(3).getTitulo());
+
         } catch (Exception ex) {
 
         }
@@ -104,6 +160,9 @@ public class TestAplicacion extends javax.swing.JFrame {
         rb4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         txtcorrectas = new javax.swing.JLabel();
+        txtResultado = new javax.swing.JLabel();
+        txtRespuestasTotales = new javax.swing.JLabel();
+        ResultadosFinales = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -144,22 +203,30 @@ public class TestAplicacion extends javax.swing.JFrame {
         txtcorrectas.setText("..");
         getContentPane().add(txtcorrectas);
 
+        txtResultado.setText("Resultado");
+        getContentPane().add(txtResultado);
+
+        txtRespuestasTotales.setText("Respuestas totales");
+        getContentPane().add(txtRespuestasTotales);
+
+        ResultadosFinales.setText("hola");
+        getContentPane().add(ResultadosFinales);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //usar este
-        buttonGroup1.getSelection();
+        //usar este       
         solocinco++;
-        mostrarPregunta(numero++);
-        correctas++;
-        txtcorrectas.setText("Respuestas correctas: " + correctas);
-        if (solocinco > 5) {
-            dispose();
-            Resultado r1 = new Resultado();
-            r1.setVisible(true);
+        if (txtcorrectas.getText().equals(txtResultado.getText())) {
+            correctas++;
         }
-
+        txtRespuestasTotales.setText("" + correctas);
+        if (solocinco > 5) {
+            ResultadosFinales.setText("El resulado es: " + correctas + " de 5");
+            ResultadosFinales.setVisible(true);
+        }
+        mostrarPregunta(numero++);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -199,6 +266,7 @@ public class TestAplicacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ResultadosFinales;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel etiquetaPregunta;
     private javax.swing.JLabel etiquetaTiempo;
@@ -207,6 +275,8 @@ public class TestAplicacion extends javax.swing.JFrame {
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;
     private javax.swing.JRadioButton rb4;
+    private javax.swing.JLabel txtRespuestasTotales;
+    private javax.swing.JLabel txtResultado;
     private javax.swing.JLabel txtcorrectas;
     // End of variables declaration//GEN-END:variables
 }

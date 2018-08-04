@@ -93,5 +93,20 @@
         <Property name="text" type="java.lang.String" value=".."/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JLabel" name="txtResultado">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Resultado"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="txtRespuestasTotales">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Respuestas totales"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ResultadosFinales">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="hola"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
