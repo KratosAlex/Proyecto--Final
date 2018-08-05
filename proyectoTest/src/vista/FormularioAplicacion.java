@@ -486,15 +486,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                     txtUpIncorrecta2.setText(p.getOpciones().get(2).getTitulo());
                     txtUpIncorrecta3.setText(p.getOpciones().get(3).getTitulo());
                 }
-
                 i++;
             }
         } catch (Exception ex) {
-
         }
         ;
-
-
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
