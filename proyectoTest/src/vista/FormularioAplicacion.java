@@ -475,26 +475,26 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        int i=0;
-        int ii=Integer.parseInt(txtUpBuscar.getText());
+        int i = 0;
+        int ii = Integer.parseInt(txtUpBuscar.getText());
         try {
             for (Pregunta p : PersistenciaPregunta.leer()) {
-                if (i==ii) {
-                txtUpPregunta.setText(p.getTitulo());
-                txtUpCorrecta.setText(p.getOpciones().get(0).getTitulo());
-                txtUpIncorrecta1.setText(p.getOpciones().get(1).getTitulo());
-                txtUpIncorrecta2.setText(p.getOpciones().get(2).getTitulo());
-                txtUpIncorrecta3.setText(p.getOpciones().get(3).getTitulo()); 
+                if (i == ii) {
+                    txtUpPregunta.setText(p.getTitulo());
+                    txtUpCorrecta.setText(p.getOpciones().get(0).getTitulo());
+                    txtUpIncorrecta1.setText(p.getOpciones().get(1).getTitulo());
+                    txtUpIncorrecta2.setText(p.getOpciones().get(2).getTitulo());
+                    txtUpIncorrecta3.setText(p.getOpciones().get(3).getTitulo());
                 }
-                
+
                 i++;
             }
         } catch (Exception ex) {
-           
+
         }
-;
-        
-        
+        ;
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
