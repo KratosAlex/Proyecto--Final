@@ -78,11 +78,14 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         txtUpIncorrecta2 = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        botonactualizar = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
         txtUpCorrecta = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        txtBorrarPregunta = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 102));
@@ -288,10 +291,10 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Respuesta incorrecta:");
 
-        jButton5.setText("Actualizar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonactualizar.setText("Actualizar");
+        botonactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonactualizarActionPerformed(evt);
             }
         });
 
@@ -322,7 +325,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                                     .addComponent(jLabel11)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(222, 222, 222)
-                                .addComponent(jButton5)))
+                                .addComponent(botonactualizar)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -369,21 +372,47 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                     .addComponent(jScrollPane9)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
+                .addComponent(botonactualizar)
                 .addContainerGap())
         );
 
         jTabbedPane1.addTab("Actualizar Pregunta", jPanel3);
 
+        jLabel13.setText("Pregunta a borrar:");
+
+        jButton2.setText("Borrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 554, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBorrarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(jButton2)))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 415, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtBorrarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(302, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Borrar Pregunta", jPanel4);
@@ -489,13 +518,63 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                 i++;
             }
         } catch (Exception ex) {
+            
         }
         ;
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonactualizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+
+         int ii = Integer.parseInt(txtUpBuscar.getText());
+        try {
+            PersistenciaPregunta.borrar(ii);          
+        } catch (Exception ex) {          
+        }
+        
+        String titulo = txtUpPregunta.getText();
+        String op1 = txtUpCorrecta.getText();
+        String op2 = txtUpIncorrecta1.getText();
+        String op3 = txtUpIncorrecta2.getText();
+        String op4 = txtUpIncorrecta3.getText();
+        //Construimos cada opcion
+        Opcion o1 = new Opcion(op1, true);
+        Opcion o2 = new Opcion(op2, false);
+        Opcion o3 = new Opcion(op3, false);
+        Opcion o4 = new Opcion(op4, false);
+        ArrayList opciones = new ArrayList<>();
+        opciones.add(o1);
+        opciones.add(o2);
+        opciones.add(o3);
+        opciones.add(o4);
+        //Las agregamos a un arraylist y a la pregunta
+        //Arrays.asList(o1,o2,o3,o4)
+        Pregunta p = new Pregunta(titulo, opciones);
+        //Ahora si guardamos la pregunta
+        try {
+            PersistenciaPregunta.guardar(p);          
+            JOptionPane.showConfirmDialog(this, "Pregunta actualizada");
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(this, e.getMessage());
+        }
+        
+
+        
+
+    }//GEN-LAST:event_botonactualizarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        int ii = Integer.parseInt(txtBorrarPregunta.getText());
+        try {
+            PersistenciaPregunta.borrar(ii);
+            JOptionPane.showConfirmDialog(this, "Pregunta " + ii + " borrada");
+        } catch (Exception ex) {
+            JOptionPane.showConfirmDialog(this, "La pregunta " + ii + " no existe");
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -534,13 +613,15 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MostrarButton;
+    private javax.swing.JButton botonactualizar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -567,6 +648,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtBorrarPregunta;
     private javax.swing.JTextArea txtCorrecta;
     private javax.swing.JTextArea txtIncorrecta1;
     private javax.swing.JTextArea txtIncorrecta2;
