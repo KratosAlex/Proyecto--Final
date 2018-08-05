@@ -7,6 +7,8 @@ package vista;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Opcion;
 import modelo.PersistenciaPregunta;
@@ -63,10 +65,10 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        txtBuscar = new javax.swing.JTextField();
+        txtUpBuscar = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        txtUpCorrecta = new javax.swing.JTextArea();
+        txtUpPregunta = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         txtUpIncorrecta1 = new javax.swing.JTextArea();
@@ -77,6 +79,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtUpIncorrecta2 = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        txtUpCorrecta = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -234,7 +239,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                 .addComponent(MostrarButton)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar Pregunta", jPanel2);
@@ -254,13 +259,13 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Respuesta correcta:");
 
-        txtUpCorrecta.setColumns(20);
-        txtUpCorrecta.setRows(4);
-        txtUpCorrecta.setTabSize(20);
-        jScrollPane7.setViewportView(txtUpCorrecta);
+        txtUpPregunta.setColumns(20);
+        txtUpPregunta.setRows(4);
+        txtUpPregunta.setTabSize(20);
+        jScrollPane7.setViewportView(txtUpPregunta);
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Respuesta correcta:");
+        jLabel9.setText("Respuesta incorrecta:");
 
         txtUpIncorrecta1.setColumns(20);
         txtUpIncorrecta1.setRows(4);
@@ -268,7 +273,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jScrollPane8.setViewportView(txtUpIncorrecta1);
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Respuesta correcta:");
+        jLabel10.setText("Respuesta incorrecta:");
 
         txtUpIncorrecta3.setColumns(20);
         txtUpIncorrecta3.setRows(4);
@@ -281,9 +286,22 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jScrollPane10.setViewportView(txtUpIncorrecta2);
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Respuesta correcta:");
+        jLabel11.setText("Respuesta incorrecta:");
 
         jButton5.setText("Actualizar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        txtUpCorrecta.setColumns(20);
+        txtUpCorrecta.setRows(4);
+        txtUpCorrecta.setTabSize(20);
+        jScrollPane11.setViewportView(txtUpCorrecta);
+
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Pregunta:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -293,63 +311,66 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4))
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(222, 222, 222)
+                                .addComponent(jButton5)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtUpBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton4))
+                            .addComponent(jLabel12)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jButton4)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                    .addComponent(txtUpBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addGap(5, 5, 5)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane8)
+                    .addComponent(jScrollPane9)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane9))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane10)))
-                        .addGap(37, 37, 37)
-                        .addComponent(jButton5)
-                        .addGap(34, 34, 34))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))))
+                .addComponent(jButton5)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Actualizar Pregunta", jPanel3);
@@ -362,7 +383,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 415, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Borrar Pregunta", jPanel4);
@@ -454,9 +475,31 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        int i=0;
+        int ii=Integer.parseInt(txtUpBuscar.getText());
+        try {
+            for (Pregunta p : PersistenciaPregunta.leer()) {
+                if (i==ii) {
+                txtUpPregunta.setText(p.getTitulo());
+                txtUpCorrecta.setText(p.getOpciones().get(0).getTitulo());
+                txtUpIncorrecta1.setText(p.getOpciones().get(1).getTitulo());
+                txtUpIncorrecta2.setText(p.getOpciones().get(2).getTitulo());
+                txtUpIncorrecta3.setText(p.getOpciones().get(3).getTitulo()); 
+                }
+                
+                i++;
+            }
+        } catch (Exception ex) {
+           
+        }
+;
         
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,6 +544,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -515,6 +559,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -526,15 +571,16 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextArea txtCorrecta;
     private javax.swing.JTextArea txtIncorrecta1;
     private javax.swing.JTextArea txtIncorrecta2;
     private javax.swing.JTextArea txtIncorrecta3;
     private javax.swing.JTextArea txtTitulo;
+    private javax.swing.JTextField txtUpBuscar;
     private javax.swing.JTextArea txtUpCorrecta;
     private javax.swing.JTextArea txtUpIncorrecta1;
     private javax.swing.JTextArea txtUpIncorrecta2;
     private javax.swing.JTextArea txtUpIncorrecta3;
+    private javax.swing.JTextArea txtUpPregunta;
     // End of variables declaration//GEN-END:variables
 }
