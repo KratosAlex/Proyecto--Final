@@ -21,7 +21,7 @@ public class PersistenciaPregunta {
 
         //paso 1: Generar el archivo donde se va a guardar nuestro seializado}
         ArrayList<Pregunta> preguntas = new ArrayList<>();
-        File file = new File("cuestionario.yo");
+        File file = new File("KratosAlex");
         if(file.exists())preguntas= leer();
         preguntas.add(p);
         //paso 2:Indicar que lo vamos a generar para escribir en el
@@ -37,7 +37,7 @@ public class PersistenciaPregunta {
     
     public static ArrayList<Pregunta> leer() throws Exception {
         //Primero asignamos la ruta del archivo que vamos a leer
-        File file = new File("cuestionario.yo");
+        File file = new File("KratosAlex");
         //
         FileInputStream fis = new FileInputStream(file);
         //
@@ -79,7 +79,7 @@ public class PersistenciaPregunta {
 
         //paso 1: Generar el archivo donde se va a guardar nuestro seializado}
         ArrayList<Pregunta> preguntas = new ArrayList<>();
-        File file = new File("cuestionario.yo");
+        File file = new File("KratosAlex");
         if(file.exists())preguntas= leer();
         preguntas.remove(indice);
         //paso 2:Indicar que lo vamos a generar para escribir en el
@@ -98,7 +98,7 @@ public class PersistenciaPregunta {
 
         //paso 1: Generar el archivo donde se va a guardar nuestro seializado}
         ArrayList<Pregunta> preguntas = new ArrayList<>();
-        File file = new File("cuestionario.yo");
+        File file = new File("KratosAlex");
         if(file.exists())preguntas= leer();
         preguntas.add(p);
         //paso 2:Indicar que lo vamos a generar para escribir en el

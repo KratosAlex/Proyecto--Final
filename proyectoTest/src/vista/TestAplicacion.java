@@ -16,7 +16,7 @@ import modelo.Pregunta;
 
 /**
  *
- * @author Oldspice
+ * @author KratosAlex
  */
 public class TestAplicacion extends javax.swing.JFrame {
 
@@ -209,7 +209,7 @@ public class TestAplicacion extends javax.swing.JFrame {
         txtRespuestasTotales.setText("Respuestas totales");
         getContentPane().add(txtRespuestasTotales);
 
-        ResultadosFinales.setText("hola");
+        ResultadosFinales.setText("Resulatado");
         getContentPane().add(ResultadosFinales);
 
         pack();

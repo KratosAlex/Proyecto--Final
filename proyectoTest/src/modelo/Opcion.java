@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author T-101
+ * @author KratosAlex
  */
 public class Opcion implements Serializable{
 

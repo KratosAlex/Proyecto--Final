@@ -3,7 +3,7 @@ package modelo;
 public class ValidarUsuario {
 
     public static void ValidarUsuarioCorrecto(String login, String password) throws UsuarioNoValidoException {
-        if (!("carlos".equals(login) && "14050500".equals(password))) {
+        if (!("alex".equals(login) && "12345".equals(password))) {
             throw new UsuarioNoValidoException();
         }
     }

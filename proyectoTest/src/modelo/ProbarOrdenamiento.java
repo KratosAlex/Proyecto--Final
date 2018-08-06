@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  *
- * @author T-101
+ * @author KratosAlex
  */
 public class ProbarOrdenamiento {
 

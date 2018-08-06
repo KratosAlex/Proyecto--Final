@@ -10,7 +10,7 @@ import modelo.ValidarUsuario;
 
 /**
  *
- * @author Oldspice
+ * @author KratosAlex
  */
 public class AdministracionAplicacion extends javax.swing.JFrame {
 
@@ -43,24 +43,33 @@ public class AdministracionAplicacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        jLabel1.setBackground(new java.awt.Color(0, 102, 0));
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
         jLabel1.setText("Inserte sus datos:");
 
+        txtusuario.setBackground(new java.awt.Color(0, 0, 0));
+        txtusuario.setForeground(new java.awt.Color(0, 102, 0));
+
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 102, 0));
         jLabel2.setText("Usuario:");
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
         jLabel3.setText("Password:");
 
+        txtpassword.setBackground(new java.awt.Color(0, 0, 0));
+        txtpassword.setForeground(new java.awt.Color(0, 102, 0));
+
         AlertaError.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        AlertaError.setForeground(new java.awt.Color(255, 51, 204));
+        AlertaError.setForeground(new java.awt.Color(255, 0, 0));
         AlertaError.setText("DATOS NO VALIDOS");
 
+        IngresarButton.setBackground(new java.awt.Color(0, 0, 0));
+        IngresarButton.setForeground(new java.awt.Color(0, 102, 0));
         IngresarButton.setText("Ingresar");
         IngresarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

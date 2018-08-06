@@ -16,7 +16,7 @@ import modelo.Pregunta;
 
 /**
  *
- * @author Oldspice
+ * @author KratosAlex
  */
 public class FormularioAplicacion extends javax.swing.JFrame {
 
@@ -88,7 +88,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 102));
+        setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
         jLabel2.setText("Administracion de Formulario");
@@ -96,9 +96,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 102));
         jTabbedPane1.setForeground(new java.awt.Color(0, 0, 102));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 102, 0));
         jLabel1.setText("Titulo de Pregunta");
 
         txtTitulo.setColumns(20);
@@ -106,16 +106,16 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtTitulo.setTabSize(20);
         jScrollPane1.setViewportView(txtTitulo);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Respuesta Correcta");
+        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel3.setText("Opcion Correcta");
 
         txtCorrecta.setColumns(20);
         txtCorrecta.setRows(4);
         txtCorrecta.setTabSize(20);
         jScrollPane2.setViewportView(txtCorrecta);
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Respuesta Incorrecta 1");
+        jLabel4.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel4.setText("Opcion Incorrecta 1");
 
         txtIncorrecta1.setColumns(20);
         txtIncorrecta1.setRows(4);
@@ -127,17 +127,19 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtIncorrecta3.setTabSize(20);
         jScrollPane4.setViewportView(txtIncorrecta3);
 
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Respuesta Incorrecta 3");
+        jLabel5.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel5.setText("Opcion Incorrecta 3");
 
         txtIncorrecta2.setColumns(20);
         txtIncorrecta2.setRows(4);
         txtIncorrecta2.setTabSize(20);
         jScrollPane5.setViewportView(txtIncorrecta2);
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Respuesta Incorrecta 2");
+        jLabel6.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel6.setText("Opcion Incorrecta 2");
 
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setForeground(new java.awt.Color(0, 102, 0));
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,8 +207,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Nueva Pregunta", jPanel1);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
+        jTable1.setBackground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -217,6 +220,8 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(jTable1);
 
+        MostrarButton.setBackground(new java.awt.Color(0, 0, 0));
+        MostrarButton.setForeground(new java.awt.Color(0, 102, 0));
         MostrarButton.setText("Mostrar Preguntas");
         MostrarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,10 +235,12 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(MostrarButton)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(MostrarButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +254,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Buscar Pregunta", jPanel2);
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Pregunta a buscar:");
@@ -484,7 +491,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                     //El primero correstponde a las filas y el sedungo a als columnas
                     new Object[PersistenciaPregunta.leer().size()][4],
                     new String[]{
-                        "Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
+                        "Numero de Pregunta","Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
                     }
             ));
             int i = 0;
