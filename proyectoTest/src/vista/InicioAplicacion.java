@@ -16,7 +16,9 @@ public class InicioAplicacion extends javax.swing.JFrame {
      */
     public InicioAplicacion() {
         initComponents();
+        setSize(400,300);
         setLocationRelativeTo(this);
+        
     }
 
     /**
@@ -28,80 +30,49 @@ public class InicioAplicacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         AdminButton = new javax.swing.JButton();
         InicioButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(0, 0, 102));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Inicio de aplicacion:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(60, 40, 284, 40);
 
+        AdminButton.setBackground(new java.awt.Color(0, 0, 0));
+        AdminButton.setForeground(new java.awt.Color(0, 102, 0));
         AdminButton.setText("Administrar");
         AdminButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AdminButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(AdminButton);
+        AdminButton.setBounds(150, 130, 87, 23);
 
+        InicioButton.setBackground(new java.awt.Color(0, 0, 0));
+        InicioButton.setForeground(new java.awt.Color(0, 102, 0));
         InicioButton.setText("Inicio Test");
         InicioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InicioButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(InicioButton);
+        InicioButton.setBounds(150, 180, 87, 23);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 162, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(InicioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(AdminButton))
-                .addGap(151, 151, 151))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(AdminButton)
-                .addGap(26, 26, 26)
-                .addComponent(InicioButton)
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\KratosAlex\\Documents\\NetBeansProjects23\\ProyectoTest\\proyectoTest\\src\\vista\\fondoproyecto.jpg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, -26, 390, 320);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        AdministracionAplicacion admin = new AdministracionAplicacion();
-        admin.setVisible(true);
-    }//GEN-LAST:event_AdminButtonActionPerformed
 
     private void InicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioButtonActionPerformed
         // TODO add your handling code here:
@@ -109,6 +80,13 @@ public class InicioAplicacion extends javax.swing.JFrame {
         TestAplicacion test = new TestAplicacion();
         test.setVisible(true);
     }//GEN-LAST:event_InicioButtonActionPerformed
+
+    private void AdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminButtonActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        AdministracionAplicacion admin = new AdministracionAplicacion();
+        admin.setVisible(true);
+    }//GEN-LAST:event_AdminButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +127,6 @@ public class InicioAplicacion extends javax.swing.JFrame {
     private javax.swing.JButton AdminButton;
     private javax.swing.JButton InicioButton;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

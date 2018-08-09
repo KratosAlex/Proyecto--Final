@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Opcion;
 import modelo.PersistenciaPregunta;
 import modelo.Pregunta;
@@ -23,7 +24,7 @@ public class TestAplicacion extends javax.swing.JFrame {
     int numero = 0; //Variable usada para el numero de la pregunta
     int tiempo; //Variable usada para generar tiempo
     int respuestas;
-    int solocinco = 1;
+    int ocho = 1;
     int correctas = 0;
     String respuestaActual;
 
@@ -33,7 +34,7 @@ public class TestAplicacion extends javax.swing.JFrame {
     public TestAplicacion() {
         initComponents();
         setLocationRelativeTo(this);
-        setSize(300, 500);
+        setSize(400, 330);
         mostrarPregunta(numero++);
         txtRespuestasTotales.setVisible(false);
         txtResultado.setVisible(false);
@@ -49,11 +50,11 @@ public class TestAplicacion extends javax.swing.JFrame {
                     try {
                         Thread.sleep(1000);
                         etiquetaTiempo.setText("Tiempo: " + tiempo);
-                        if (tiempo >= 5) {
+                        if (tiempo >= 30) {
                             mostrarPregunta(numero++);
-                            solocinco++;
-                            if (solocinco > 5) {
-                                ResultadosFinales.setText("El resulado es: " + correctas + " de 5");
+                            ocho++;
+                            if (ocho> 8) {
+                                ResultadosFinales.setText("El resulado es: " + correctas + " de 8");
             ResultadosFinales.setVisible(true);
                                 
                             }
@@ -163,35 +164,49 @@ public class TestAplicacion extends javax.swing.JFrame {
         txtResultado = new javax.swing.JLabel();
         txtRespuestasTotales = new javax.swing.JLabel();
         ResultadosFinales = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.Y_AXIS));
+        getContentPane().setLayout(null);
 
         etiquetaPregunta.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        etiquetaPregunta.setForeground(new java.awt.Color(0, 102, 0));
         etiquetaPregunta.setText("Aqui ira la pregunta");
         getContentPane().add(etiquetaPregunta);
+        etiquetaPregunta.setBounds(0, 0, 650, 21);
 
         etiquetaTiempo.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        etiquetaTiempo.setForeground(new java.awt.Color(0, 102, 0));
         etiquetaTiempo.setText("Tiempo");
         getContentPane().add(etiquetaTiempo);
+        etiquetaTiempo.setBounds(0, 21, 420, 21);
 
         buttonGroup1.add(rb1);
+        rb1.setForeground(new java.awt.Color(0, 102, 0));
         rb1.setText("jRadioButton1");
         getContentPane().add(rb1);
+        rb1.setBounds(0, 42, 420, 23);
 
         buttonGroup1.add(rb2);
+        rb2.setForeground(new java.awt.Color(0, 102, 0));
         rb2.setText("jRadioButton2");
         getContentPane().add(rb2);
+        rb2.setBounds(0, 65, 420, 23);
 
         buttonGroup1.add(rb3);
+        rb3.setForeground(new java.awt.Color(0, 102, 0));
         rb3.setText("jRadioButton3");
         getContentPane().add(rb3);
+        rb3.setBounds(0, 88, 420, 23);
 
         buttonGroup1.add(rb4);
+        rb4.setForeground(new java.awt.Color(0, 102, 0));
         rb4.setText("jRadioButton4");
         getContentPane().add(rb4);
+        rb4.setBounds(0, 111, 420, 23);
 
+        jButton1.setForeground(new java.awt.Color(0, 102, 0));
         jButton1.setText("Siguiente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,35 +214,58 @@ public class TestAplicacion extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
+        jButton1.setBounds(0, 134, 110, 23);
 
+        txtcorrectas.setForeground(new java.awt.Color(0, 102, 0));
         txtcorrectas.setText("..");
         getContentPane().add(txtcorrectas);
+        txtcorrectas.setBounds(0, 157, 8, 14);
 
+        txtResultado.setForeground(new java.awt.Color(0, 102, 0));
         txtResultado.setText("Resultado");
         getContentPane().add(txtResultado);
+        txtResultado.setBounds(0, 171, 430, 14);
 
+        txtRespuestasTotales.setForeground(new java.awt.Color(0, 102, 0));
         txtRespuestasTotales.setText("Respuestas totales");
         getContentPane().add(txtRespuestasTotales);
+        txtRespuestasTotales.setBounds(0, 185, 420, 14);
 
+        ResultadosFinales.setForeground(new java.awt.Color(0, 102, 0));
         ResultadosFinales.setText("Resulatado");
         getContentPane().add(ResultadosFinales);
+        ResultadosFinales.setBounds(0, 199, 420, 14);
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setForeground(new java.awt.Color(0, 102, 0));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 650, 290);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //usar este       
-        solocinco++;
+        ocho++;
         if (txtcorrectas.getText().equals(txtResultado.getText())) {
             correctas++;
+            
         }
         txtRespuestasTotales.setText("" + correctas);
-        if (solocinco > 5) {
-            ResultadosFinales.setText("El resulado es: " + correctas + " de 5");
-            ResultadosFinales.setVisible(true);
+        if (ocho > 8) {
+            //ResultadosFinales.setText("El resulado es: " + correctas + " de 8");
+            //ResultadosFinales.setVisible(true);
+             JOptionPane.showMessageDialog(null,"El resulado es: " + correctas + " de 8" );
+            jButton1.disable();
+            System.exit(WIDTH);
+            
+        
+           
+            
         }
         mostrarPregunta(numero++);
-        // TODO add your handling code here:
+       
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -261,8 +299,11 @@ public class TestAplicacion extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TestAplicacion().setVisible(true);
+               
             }
-        });
+        }
+        );
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -271,6 +312,7 @@ public class TestAplicacion extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaPregunta;
     private javax.swing.JLabel etiquetaTiempo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton rb1;
     private javax.swing.JRadioButton rb2;
     private javax.swing.JRadioButton rb3;

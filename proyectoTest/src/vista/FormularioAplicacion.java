@@ -62,6 +62,9 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         MostrarButton = new javax.swing.JButton();
+        BuscarNumero = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -91,10 +94,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
-        jLabel2.setText("Administracion de Formulario");
+        jLabel2.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel2.setText("Administracion Formulario");
 
         jTabbedPane1.setBackground(new java.awt.Color(0, 0, 102));
-        jTabbedPane1.setForeground(new java.awt.Color(0, 0, 102));
+        jTabbedPane1.setForeground(new java.awt.Color(0, 102, 0));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -104,6 +108,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtTitulo.setColumns(20);
         txtTitulo.setRows(4);
         txtTitulo.setTabSize(20);
+        txtTitulo.setCaretColor(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txtTitulo);
 
         jLabel3.setForeground(new java.awt.Color(0, 102, 0));
@@ -209,7 +214,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        jTable1.setBackground(new java.awt.Color(0, 0, 0));
+        jTable1.setForeground(new java.awt.Color(0, 102, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -229,6 +234,16 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel14.setText("Numero Pregunta a Buscar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -236,7 +251,13 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(MostrarButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BuscarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3)
+                .addGap(22, 22, 22))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 534, Short.MAX_VALUE)
@@ -246,7 +267,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(MostrarButton)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MostrarButton)
+                    .addComponent(BuscarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(105, Short.MAX_VALUE))
@@ -256,9 +281,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 102, 0));
         jLabel7.setText("Pregunta a buscar:");
 
+        jButton4.setBackground(new java.awt.Color(0, 0, 0));
+        jButton4.setForeground(new java.awt.Color(0, 102, 0));
         jButton4.setText("Buscar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +293,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setForeground(new java.awt.Color(0, 102, 0));
         jLabel8.setText("Respuesta correcta:");
 
         txtUpPregunta.setColumns(20);
@@ -274,7 +301,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtUpPregunta.setTabSize(20);
         jScrollPane7.setViewportView(txtUpPregunta);
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setForeground(new java.awt.Color(0, 102, 0));
         jLabel9.setText("Respuesta incorrecta:");
 
         txtUpIncorrecta1.setColumns(20);
@@ -282,7 +309,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtUpIncorrecta1.setTabSize(20);
         jScrollPane8.setViewportView(txtUpIncorrecta1);
 
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setForeground(new java.awt.Color(0, 102, 0));
         jLabel10.setText("Respuesta incorrecta:");
 
         txtUpIncorrecta3.setColumns(20);
@@ -295,9 +322,11 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtUpIncorrecta2.setTabSize(20);
         jScrollPane10.setViewportView(txtUpIncorrecta2);
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setForeground(new java.awt.Color(0, 102, 0));
         jLabel11.setText("Respuesta incorrecta:");
 
+        botonactualizar.setBackground(new java.awt.Color(0, 0, 0));
+        botonactualizar.setForeground(new java.awt.Color(0, 102, 0));
         botonactualizar.setText("Actualizar");
         botonactualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -310,7 +339,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
         txtUpCorrecta.setTabSize(20);
         jScrollPane11.setViewportView(txtUpCorrecta);
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setForeground(new java.awt.Color(0, 102, 0));
         jLabel12.setText("Pregunta:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -385,8 +414,13 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Actualizar Pregunta", jPanel3);
 
-        jLabel13.setText("Pregunta a borrar:");
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
 
+        jLabel13.setForeground(new java.awt.Color(0, 102, 0));
+        jLabel13.setText("Numero de Pregunta a borrar:");
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setForeground(new java.awt.Color(0, 102, 0));
         jButton2.setText("Borrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -401,14 +435,14 @@ public class FormularioAplicacion extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
+                        .addGap(21, 21, 21)
                         .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtBorrarPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jButton2)))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -491,7 +525,7 @@ public class FormularioAplicacion extends javax.swing.JFrame {
                     //El primero correstponde a las filas y el sedungo a als columnas
                     new Object[PersistenciaPregunta.leer().size()][4],
                     new String[]{
-                        "Numero de Pregunta","Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
+                        "Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
                     }
             ));
             int i = 0;
@@ -583,6 +617,38 @@ public class FormularioAplicacion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+   
+        try {
+            //Le damos formato a nuestra tabla
+            jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                    //El primero correstponde a las filas y el sedungo a als columnas
+                    new Object[PersistenciaPregunta.leer().size()][4],
+                    new String[]{
+                        "Titulo de la pregunta", "Opcion 1", "Opcion 2", "Opcion 3", "Opcion 4"
+                    }
+            ));
+            
+            int ii = Integer.parseInt(BuscarNumero.getText());
+            int i = 0;
+            for (Pregunta p : PersistenciaPregunta.leer()) {
+                if (i == ii) {
+                  jTable1.setValueAt(p.getTitulo(), i, 0);
+                jTable1.setValueAt(p.getOpciones().get(0).getTitulo(), ii, 1);
+                jTable1.setValueAt(p.getOpciones().get(1).getTitulo(), ii, 2);
+                jTable1.setValueAt(p.getOpciones().get(2).getTitulo(), ii, 3);
+                jTable1.setValueAt(p.getOpciones().get(3).getTitulo(), ii, 4);
+                
+                }
+                i++;
+            };
+
+        } catch (Exception ex) {
+            
+        }
+//handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -619,16 +685,19 @@ public class FormularioAplicacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField BuscarNumero;
     private javax.swing.JButton MostrarButton;
     private javax.swing.JButton botonactualizar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
